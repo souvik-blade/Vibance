@@ -1,8 +1,23 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vibance/models/playlist_provider.dart';
+import 'package:vibance/pages/home_page.dart';
+import 'package:vibance/themes/theme_provider.dart';
 
 void main() {
-  runApp(const vibance());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PlaylistProvider(),
+        ),
+      ],
+      child: const vibance(),
+    ),
+  );
 }
 
 class vibance extends StatelessWidget {
@@ -11,14 +26,9 @@ class vibance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey[850],
-        body: const SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
