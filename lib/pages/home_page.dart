@@ -3,16 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:vibance/components/my_drawer.dart';
 import 'package:vibance/models/playlist_provider.dart';
 import 'package:vibance/models/song.dart';
+
 import 'package:vibance/pages/song_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class UserHomePage extends StatefulWidget {
+  const UserHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<UserHomePage> createState() => _UserHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _UserHomePageState extends State<UserHomePage> {
   // get playlist provider
   late final dynamic playlistProvider;
 
@@ -46,11 +47,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            "P L A Y L I S T",
+            "S O N G S",
           ),
         ),
       ),
-      drawer: const MyDrawer(),
       body: Consumer<PlaylistProvider>(
         builder: (context, value, child) {
           //get the playlist
@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
               return ListTile(
                 title: Text(song.songName),
                 subtitle: Text(song.artistName),
+                leading: Image.asset(song.songImagePath),
                 onTap: () => goToSong(index),
               );
             },

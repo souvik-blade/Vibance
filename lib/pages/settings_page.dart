@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vibance/themes/theme_provider.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class UserSettingsPage extends StatelessWidget {
+  const UserSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
