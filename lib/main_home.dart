@@ -14,7 +14,7 @@ class MainHomeState extends StatefulWidget {
 }
 
 class _MainHomeStateState extends State<MainHomeState> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
   void navigateBar(int index) {
     setState(() {
       _selectedIndex = index;

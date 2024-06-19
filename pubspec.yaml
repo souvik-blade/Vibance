@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.1.2
   audioplayers: ^6.0.0
   google_nav_bar: ^5.0.6
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,7 @@ flutter:
   assets:
     - assets/audios/
     - assets/images/
+    - assets/icons/
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
