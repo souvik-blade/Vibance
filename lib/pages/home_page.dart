@@ -67,6 +67,10 @@ class _UserHomePageState extends State<UserHomePage> {
                 title: Text(song.songName),
                 subtitle: Text(song.artistName),
                 leading: Image.asset(song.songImagePath),
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.more_vert_rounded),
+                ),
                 onTap: () => goToSong(index),
               );
             },

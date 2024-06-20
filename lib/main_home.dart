@@ -35,7 +35,7 @@ class _MainHomeStateState extends State<MainHomeState> {
       bottomNavigationBar: Container(
         color: Colors.grey.shade900,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: GNav(
             backgroundColor: Colors.grey.shade900,
             tabBackgroundColor: Color.fromARGB(255, 164, 35, 245),
