@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vibance/components/neu_box.dart';
+
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vibance/models/playlist_provider.dart';
 
 class SongPage extends StatelessWidget {
@@ -53,11 +54,9 @@ class SongPage extends StatelessWidget {
                     height: 50.0,
                   ),
                   // song image
-                  NeuBox(
-                    child: ClipRRect(
-                      child: Image.asset(currentSong.songImagePath),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(currentSong.songImagePath),
                   ),
 
                   SizedBox(height: 50.0),
@@ -142,25 +141,39 @@ class SongPage extends StatelessWidget {
                     children: [
                       Expanded(
                         child: GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.shuffle_rounded,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: GestureDetector(
                           onTap: () {
                             value.playPreviousSong();
                           },
-                          child: NeuBox(
-                            child: Icon(Icons.skip_previous),
+                          child: SvgPicture.asset(
+                            width: 28,
+                            height: 28,
+                            "assets/icons/play_backward.svg",
                           ),
                         ),
                       ),
                       const SizedBox(width: 20.0),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            value.pauseOrResume();
-                          },
-                          child: NeuBox(
-                            child: Icon(value.isPlaying
-                                ? Icons.pause
-                                : Icons.play_arrow),
-                          ),
+                      GestureDetector(
+                        onTap: () {
+                          value.pauseOrResume();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40)),
+                          child: Icon(
+                              color: Theme.of(context).colorScheme.primary,
+                              size: 58,
+                              value.isPlaying
+                                  ? Icons.pause_circle_filled_rounded
+                                  : Icons.play_circle_filled_rounded),
                         ),
                       ),
                       const SizedBox(width: 20.0),
@@ -169,8 +182,19 @@ class SongPage extends StatelessWidget {
                           onTap: () {
                             value.playNextSong();
                           },
-                          child: NeuBox(
-                            child: Icon(Icons.skip_next),
+                          child: SvgPicture.asset(
+                            width: 28,
+                            height: 28,
+                            "assets/icons/play_forward.svg",
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.repeat_rounded,
+                            size: 28,
                           ),
                         ),
                       ),
@@ -185,3 +209,4 @@ class SongPage extends StatelessWidget {
     );
   }
 }
+//#27193B

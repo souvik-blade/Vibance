@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vibance/pages/home_page.dart';
 import 'package:vibance/pages/playlist_page.dart';
 import 'package:vibance/pages/search_page.dart';
@@ -21,7 +20,7 @@ class _MainHomeStateState extends State<MainHomeState> {
     });
   }
 
-  final List<Widget> _pages = [
+  final List<Widget> _pages = const [
     UserHomePage(),
     UserSearchPage(),
     UserPlaylistPage(),
