@@ -31,15 +31,17 @@ class UserSettingsPage extends StatelessWidget {
                   "Dark Mode",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-
                 // Switch
-                Switch(
-                  value: Provider.of<ThemeProvider>(context, listen: false)
-                      .isDarkMode,
-                  onChanged: (value) =>
-                      Provider.of<ThemeProvider>(context, listen: false)
-                          .toggleTheme(),
-                )
+                Consumer<ThemeProvider>(
+                  builder: (context, themeProvider, child) {
+                    return Switch(
+                      value: themeProvider.isDarkMode,
+                      onChanged: (value) {
+                        themeProvider.toggleTheme();
+                      },
+                    );
+                  },
+                ),
               ],
             ),
           ),

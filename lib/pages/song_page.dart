@@ -105,11 +105,12 @@ class SongPage extends StatelessWidget {
                           activeTrackColor: Colors.purple.shade800,
                         ),
                         child: Slider(
-                          min: 0,
+                          min: 0.0,
                           max: value.totalDuration.inSeconds.toDouble(),
                           value: value.currentDuration.inSeconds.toDouble(),
                           onChanged: (double double) {
                             // when the user is sliding around
+                            value.seek(Duration(seconds: double.toInt()));
                           },
                           onChangeEnd: (double double) {
                             // sliding has finished go to that position in song duration
