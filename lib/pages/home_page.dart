@@ -66,12 +66,21 @@ class _UserHomePageState extends State<UserHomePage> {
               return ListTile(
                 title: Text(song.songName),
                 subtitle: Text(song.artistName),
-                leading: Image.asset(song.songImagePath),
                 trailing: IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.more_vert_rounded),
                 ),
                 onTap: () => goToSong(index),
+                leading: ClipRRect(
+                  borderRadius:
+                      BorderRadius.circular(20), // Maintain rounded corners
+                  child: Container(
+                    // Adjust height and width for desired image size
+                    height: 150, // Example height, adjust as needed
+                    width: 100, // Example width, adjust as needed
+                    child: Image.asset(song.songImagePath),
+                  ),
+                ),
               );
             },
           );

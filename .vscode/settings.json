@@ -1,4 +1,5 @@
 {
-    "cmake.sourceDirectory": "C:/VS/Flutter Projects/vibance/linux",
-    "java.configuration.updateBuildConfiguration": "interactive"
+  "cmake.sourceDirectory": "C:/VS/Flutter Projects/vibance/linux",
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "cSpell.words": ["vibance"]
 }
