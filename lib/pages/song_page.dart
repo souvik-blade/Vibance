@@ -26,6 +26,16 @@ class SongPage extends StatelessWidget {
         final currentSong = playlist[value.currentSongIndex ?? 0];
         // return scaffold UI
         return Scaffold(
+          appBar: AppBar(
+            title: const Text("N O W    P L A Y I N G"),
+            centerTitle: true,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.menu),
+              ),
+            ],
+          ),
           body: SafeArea(
             child: Padding(
               padding:
@@ -33,24 +43,7 @@ class SongPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(Icons.arrow_back),
-                      ),
-                      Text("N O W    P L A Y I N G"),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.menu),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                   // song image
@@ -59,7 +52,7 @@ class SongPage extends StatelessWidget {
                     child: Image.asset(currentSong.songImagePath),
                   ),
 
-                  SizedBox(height: 50.0),
+                  const SizedBox(height: 50.0),
 
                   // song progress bar
                   Column(
@@ -75,20 +68,20 @@ class SongPage extends StatelessWidget {
                               children: [
                                 Text(
                                   currentSong.songName,
-                                  style: TextStyle(
-                                    fontSize: 18.0,
+                                  style: const TextStyle(
+                                    fontSize: 24.0,
                                   ),
                                 ),
                                 Text(
                                   currentSong.artistName,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: const TextStyle(fontSize: 16.0),
                                 ),
                               ],
                             ),
                             // like or unlike
                             IconButton(
                                 onPressed: () {},
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.favorite_rounded,
                                   color: Colors.red,
                                   size: 28,
@@ -98,8 +91,8 @@ class SongPage extends StatelessWidget {
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          thumbShape:
-                              RoundSliderThumbShape(enabledThumbRadius: 10),
+                          thumbShape: const RoundSliderThumbShape(
+                              enabledThumbRadius: 10),
                           inactiveTrackColor: Colors.grey.shade800,
                           activeTrackColor: Colors.purple.shade800,
                         ),
@@ -142,23 +135,27 @@ class SongPage extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: () {},
-                          child: Icon(
+                          child: const Icon(
                             Icons.shuffle_rounded,
-                            size: 28,
+                            size: 32,
                           ),
                         ),
                       ),
                       Expanded(
                         child: GestureDetector(
-                          onTap: () {
-                            value.playPreviousSong();
-                          },
-                          child: SvgPicture.asset(
-                            width: 28,
-                            height: 28,
-                            "assets/icons/play_backward.svg",
-                          ),
-                        ),
+                            onTap: () {
+                              value.playPreviousSong();
+                            },
+                            child: Icon(
+                              Icons.skip_previous_rounded,
+                              size: 32,
+                            )
+                            // child: SvgPicture.asset(
+                            //   width: 28,
+                            //   height: 28,
+                            //   "assets/icons/play_backward.svg",
+                            // ),
+                            ),
                       ),
                       const SizedBox(width: 20.0),
                       GestureDetector(
@@ -179,22 +176,26 @@ class SongPage extends StatelessWidget {
                       const SizedBox(width: 20.0),
                       Expanded(
                         child: GestureDetector(
-                          onTap: () {
-                            value.playNextSong();
-                          },
-                          child: SvgPicture.asset(
-                            width: 28,
-                            height: 28,
-                            "assets/icons/play_forward.svg",
-                          ),
-                        ),
+                            onTap: () {
+                              value.playNextSong();
+                            },
+                            child: Icon(
+                              Icons.skip_next_rounded,
+                              size: 32,
+                            )
+                            // child: SvgPicture.asset(
+                            //   width: 28,
+                            //   height: 28,
+                            //   "assets/icons/play_forward.svg",
+                            // ),
+                            ),
                       ),
                       Expanded(
                         child: GestureDetector(
                           onTap: () {},
-                          child: Icon(
+                          child: const Icon(
                             Icons.repeat_rounded,
-                            size: 28,
+                            size: 32,
                           ),
                         ),
                       ),
