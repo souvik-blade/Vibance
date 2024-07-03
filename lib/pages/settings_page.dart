@@ -45,9 +45,6 @@ class UserSettingsPage extends StatelessWidget {
               ],
             ),
           ),
-          SvgPicture.asset(
-            "assets/icons/profile_icon.svg",
-          ),
         ],
       ),
     );

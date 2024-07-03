@@ -146,6 +146,7 @@ class PlaylistProvider extends ChangeNotifier {
       playNextSong();
     });
   }
+
   // dispose audio player
 
   // GETTERS

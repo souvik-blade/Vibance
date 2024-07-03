@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vibance/components/bottom_songbar.dart';
 import 'package:vibance/models/playlist_provider.dart';
 import 'package:vibance/models/song.dart';
 
@@ -41,51 +42,59 @@ class _UserHomePageState extends State<UserHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "S O N G",
+    return Consumer<PlaylistProvider>(
+      builder: (context, value, child) {
+        //get the playlist
+        final List<Song> playlist = value.playlist;
+        //return list view UI
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Center(
+              child: Text(
+                "S O N G S",
+              ),
+            ),
           ),
-        ),
-      ),
-      body: Consumer<PlaylistProvider>(
-        builder: (context, value, child) {
-          //get the playlist
-          final List<Song> playlist = value.playlist;
+          body: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: playlist.length,
+                  itemBuilder: (context, index) {
+                    // get individual song
+                    final Song song = playlist[index];
 
-          //return list view UI
-          return ListView.builder(
-            itemCount: playlist.length,
-            itemBuilder: (context, index) {
-              // get individual song
-              final Song song = playlist[index];
-
-              // return list view UI
-              return ListTile(
-                title: Text(song.songName),
-                subtitle: Text(song.artistName),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.more_vert_rounded),
+                    // return list view UI
+                    return ListTile(
+                      title: Text(song.songName),
+                      subtitle: Text(song.artistName),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.more_vert_rounded),
+                      ),
+                      onTap: () {
+                        goToSong(index);
+                      },
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(
+                            20), // Maintain rounded corners
+                        child: Container(
+                          // Adjust height and width for desired image size
+                          height: 150, // Example height, adjust as needed
+                          width: 100, // Example width, adjust as needed
+                          child: Image.asset(song.songImagePath),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                onTap: () => goToSong(index),
-                leading: ClipRRect(
-                  borderRadius:
-                      BorderRadius.circular(20), // Maintain rounded corners
-                  child: Container(
-                    // Adjust height and width for desired image size
-                    height: 150, // Example height, adjust as needed
-                    width: 100, // Example width, adjust as needed
-                    child: Image.asset(song.songImagePath),
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      ),
+              ),
+              BottomSongBar(),
+            ],
+          ),
+        );
+      },
     );
   }
 }
