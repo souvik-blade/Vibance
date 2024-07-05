@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vibance/models/playlist_provider.dart';
@@ -27,6 +28,15 @@ class SongPage extends StatelessWidget {
           appBar: AppBar(
             title: const Text("N O W    P L A Y I N G"),
             centerTitle: true,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                size: 32,
+              ),
+            ),
             actions: [
               IconButton(
                 onPressed: () {},
@@ -47,7 +57,10 @@ class SongPage extends StatelessWidget {
                   // song image
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(currentSong.songImagePath),
+                    child: Hero(
+                      tag: currentSong.songImagePath,
+                      child: Image.asset(currentSong.songImagePath),
+                    ),
                   ),
 
                   const SizedBox(height: 50.0),
