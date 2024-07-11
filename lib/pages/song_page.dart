@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vibance/models/playlist_provider.dart';
@@ -32,7 +31,7 @@ class SongPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: 32,
               ),
@@ -57,10 +56,7 @@ class SongPage extends StatelessWidget {
                   // song image
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Hero(
-                      tag: currentSong.songImagePath,
-                      child: Image.asset(currentSong.songImagePath),
-                    ),
+                    child: Image.asset(currentSong.songImagePath),
                   ),
 
                   const SizedBox(height: 50.0),
@@ -157,7 +153,7 @@ class SongPage extends StatelessWidget {
                             onTap: () {
                               value.playPreviousSong();
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.skip_previous_rounded,
                               size: 32,
                             )
@@ -190,7 +186,7 @@ class SongPage extends StatelessWidget {
                             onTap: () {
                               value.playNextSong();
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.skip_next_rounded,
                               size: 32,
                             )

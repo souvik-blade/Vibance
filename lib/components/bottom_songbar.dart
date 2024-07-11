@@ -21,9 +21,11 @@ class BottomSongBar extends StatelessWidget {
         return (value.currentDuration > Duration.zero || value.isPlaying)
             ? GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SongPage()),
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => SongPage(),
+                    useSafeArea: true,
+                    isScrollControlled: true,
                   );
                 },
                 child: AnimatedContainer(
@@ -44,14 +46,11 @@ class BottomSongBar extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Hero(
-                              tag: playlist[currentIndex].songImagePath,
-                              child: Image.asset(
-                                playlist[currentIndex].songImagePath,
-                                fit: BoxFit.cover,
-                                // width: 60,
-                                // height: 60,
-                              ),
+                            child: Image.asset(
+                              playlist[currentIndex].songImagePath,
+                              fit: BoxFit.cover,
+                              // width: 60,
+                              // height: 60,
                             ),
                           ),
                           const SizedBox(width: 16),

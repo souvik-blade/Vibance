@@ -37,6 +37,102 @@ class PlaylistProvider extends ChangeNotifier {
         songImagePath: "assets/images/starboy.png",
         audioPath:
             "audios/Y2meta.app - The Weeknd - Starboy (Audio) ft. Daft Punk (320 kbps).mp3"),
+    // song 1
+    Song(
+        songName: "Riptide",
+        artistName: "The Chainsmokers",
+        songImagePath: "assets/images/riptide.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - Riptide (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 2
+    Song(
+        songName: "I Love You",
+        artistName: "The Chainsmokers",
+        songImagePath:
+            "assets/images/The Chainsmokers - So Far So Good (Explicit) - Vinyl.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - I Love U (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 3
+    Song(
+        songName: "Where's My Love",
+        artistName: "SYML",
+        songImagePath: "assets/images/SYML.png",
+        audioPath:
+            "audios/Y2meta.app - SYML - _Where's My Love_ [Official Audio] (320 kbps).mp3"),
+
+    // song 4
+    Song(
+        songName: "STARBOY",
+        artistName: "The Weeknd",
+        songImagePath: "assets/images/starboy.png",
+        audioPath:
+            "audios/Y2meta.app - The Weeknd - Starboy (Audio) ft. Daft Punk (320 kbps).mp3"),
+    // song 1
+    Song(
+        songName: "Riptide",
+        artistName: "The Chainsmokers",
+        songImagePath: "assets/images/riptide.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - Riptide (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 2
+    Song(
+        songName: "I Love You",
+        artistName: "The Chainsmokers",
+        songImagePath:
+            "assets/images/The Chainsmokers - So Far So Good (Explicit) - Vinyl.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - I Love U (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 3
+    Song(
+        songName: "Where's My Love",
+        artistName: "SYML",
+        songImagePath: "assets/images/SYML.png",
+        audioPath:
+            "audios/Y2meta.app - SYML - _Where's My Love_ [Official Audio] (320 kbps).mp3"),
+
+    // song 4
+    Song(
+        songName: "STARBOY",
+        artistName: "The Weeknd",
+        songImagePath: "assets/images/starboy.png",
+        audioPath:
+            "audios/Y2meta.app - The Weeknd - Starboy (Audio) ft. Daft Punk (320 kbps).mp3"),
+    // song 1
+    Song(
+        songName: "Riptide",
+        artistName: "The Chainsmokers",
+        songImagePath: "assets/images/riptide.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - Riptide (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 2
+    Song(
+        songName: "I Love You",
+        artistName: "The Chainsmokers",
+        songImagePath:
+            "assets/images/The Chainsmokers - So Far So Good (Explicit) - Vinyl.png",
+        audioPath:
+            "audios/Y2meta.app - The Chainsmokers - I Love U (Official Lyric Video) (320 kbps).mp3"),
+
+    // song 3
+    Song(
+        songName: "Where's My Love",
+        artistName: "SYML",
+        songImagePath: "assets/images/SYML.png",
+        audioPath:
+            "audios/Y2meta.app - SYML - _Where's My Love_ [Official Audio] (320 kbps).mp3"),
+
+    // song 4
+    Song(
+        songName: "STARBOY",
+        artistName: "The Weeknd",
+        songImagePath: "assets/images/starboy.png",
+        audioPath:
+            "audios/Y2meta.app - The Weeknd - Starboy (Audio) ft. Daft Punk (320 kbps).mp3"),
   ];
 
   // index of current song playing
@@ -148,6 +244,11 @@ class PlaylistProvider extends ChangeNotifier {
   }
 
   // dispose audio player
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
 
   // GETTERS
   List<Song> get playlist => _playlist;

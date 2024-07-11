@@ -19,7 +19,6 @@ class _UserHomePageState extends State<UserHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     // get playlist provider
@@ -35,7 +34,7 @@ class _UserHomePageState extends State<UserHomePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SongPage(),
+        builder: (context) => const SongPage(),
       ),
     );
   }
@@ -71,7 +70,7 @@ class _UserHomePageState extends State<UserHomePage> {
                       subtitle: Text(song.artistName),
                       trailing: IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.more_vert_rounded),
+                        icon: const Icon(Icons.more_vert_rounded),
                       ),
                       onTap: () {
                         goToSong(index);
