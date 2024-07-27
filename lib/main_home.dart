@@ -5,7 +5,6 @@ import 'package:vibance/pages/playlist_page.dart';
 import 'package:vibance/pages/search_page.dart';
 import 'package:vibance/pages/settings_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import 'themes/theme_provider.dart';
 
 class MainHomeState extends StatefulWidget {
@@ -61,7 +60,7 @@ class _MainHomeStateState extends State<MainHomeState> {
             //     : ThemeData.light().copyWith().highlightColor,
             tabs: const [
               GButton(
-                icon: Icons.home_filled,
+                icon: Icons.home_rounded,
                 text: "Home",
               ),
               GButton(
